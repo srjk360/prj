@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access Terminal</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    .typewriter {
+      white-space: pre-line;
+      overflow: hidden;
+      border-right: .10em solid #00ff00;
+      animation: typing 10s steps(40, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #bd0606 }
+    }
+  </style>
+</head>
+<body>
+  <div class="typewriter" id="terminal-text"></div>
+
+  <script>
+    const lines = [
+      "Access granted...",
+      "Hello...",
+      "Loading secure files...",
+      " Authentication complete",
+      "Granting access.............................................................................................................010101010101010101010101010101010101010101010101010101010101010101010101010",
+      "Connecting to secure server...",
+      "Bypassing firewall...",
+      "Accessing confidential files...",
+      "Decrypting data packets...",
+      "Injecting payload...",
+      "System override initialized...",
+      "Admin privileges granted ✔",
+      "Downloading logs...",
+      "Uploading exploit...",
+      "Covering tracks...",
+      "Exit sequence initiated...",
+      "loading....pls wait.....",
+      
+  ];
+
+    let currentLine = 0;
+    let textElement = document.getElementById("terminal-text");
+
+    function typeLine() {
+      if (currentLine < lines.length) {
+        textElement.innerText += lines[currentLine] + "\n";
+        currentLine++;
+        setTimeout(typeLine, 1000);
+      } else {
+        setTimeout(() => {
+          window.location.href = "surprise.html";  // Final surprise page
+        }, 2000);
+      }
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
