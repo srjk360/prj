@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animated Login Page</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 300px;
+            animation: pop 1s ease forwards;
+            position: relative;
+        }
+
+        .logo {
+            width: 100px;
+            animation: bounce 4s linear infinite;
+        }
+
+        h2 {
+            margin: 20px 0;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #8e2de2;
+            box-shadow: 0 0 8px rgba(142, 45, 226, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8e2de2;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4a00e0;
+        }
+
+        .error-popup {
+            display: none;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            animation: fadeIn 0.3s ease;
+        }
+         @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+         }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img src="download.png" alt="Logo" class="logo">
+        <h2>Welcome</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+       <div id="errorPopup" class="error-popup">
+            Invailed username or password!<br>
+            pls ask to SRJK!
+       </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // stop form from submitting normally
+
+            // Optional: Add fake check here if needed
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorPopup = document.getElementById("errorPopup");
+
+            if (username=="admin"&& password=="hahaha") {
+                window.location.href="fake.html"; 
+            } else {
+                errorPopup.style.display = "block";
+                setTimeout(() => {
+                errorPopup.style.display = "none";
+                },5000);
+            
+            }
+        });
+    </script>
+</body>
+</html>
